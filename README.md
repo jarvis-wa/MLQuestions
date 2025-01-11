@@ -107,6 +107,34 @@ With this last approach, we care less about what is shown on the image but more 
 
 #### 14) How does image registration work? Sparse vs. dense [optical flow](http://www.ncorr.com/download/publications/bakerunify.pdf) and so on. [[src](https://www.reddit.com/r/computervision/comments/7gku4z/technical_interview_questions_in_cv/)]
 
+1. Feature Detection
+Keypoints or features are identified in both the reference and moving images. These features can be:
+
+- Sparse features: Specific points such as corners or edges, e.g., using algorithms like:
+  - SIFT (Scale-Invariant Feature Transform): detects and describes distinctive keypoints (features) in an image that are **invariant** to scale, rotation, and some degree of illumination changes. Keypoints are detected at multiple scales using a technique called the Difference of Gaussian (DoG)
+  - SURF (Speeded-Up Robust Features): SURF is similar to SIFT but is designed to be faster and computationally efficient, making it suitable for real-time applications. It uses a Hessian matrix-based approach to detect keypoints. The determinant of the Hessian matrix indicates regions of interest. Keypoints are detected at multiple scales, similar to SIFT. But it uses **Haar wavelet responses** in the neighborhood of the keypoint, resulting in a **shorter feature descriptor vector** than SIFT.
+  - Harris corner detection: detecting corners in an image, which are points where the intensity changes in multiple directions
+  - 
+- Dense features: Every pixel in the image is considered, typically in methods like optical flow.
+
+2. Feature Matching
+Correspondences between features in the two images are established:
+
+- Sparse matching: Match detected keypoints, e.g., using descriptors like SIFT or ORB.
+- Dense matching: Compute pixel-to-pixel correspondences, e.g., using dense optical flow.
+
+3. Transformation Estimation
+Determine the transformation that best aligns the matched features. Transformations can include:
+- Rigid transformations: Translation, rotation.
+- Affine transformations: Translation, rotation, scaling, and shearing.
+- Non-rigid transformations: Complex deformations, often used in medical imaging.
+
+4. Image Warping
+Apply the estimated transformation to the moving image to align it with the reference image.
+
+5. Validation
+Evaluate the quality of registration using metrics like Mean Square Error (MSE) or mutual information between the aligned images.
+
 #### 15) Describe how convolution works. What about if your inputs are grayscale vs RGB imagery? What determines the shape of the next layer?[[src](https://www.reddit.com/r/computervision/comments/7gku4z/technical_interview_questions_in_cv/)] 
 In a convolutional neural network (CNN), the convolution operation is applied to the input image using a small matrix called a kernel or filter. The kernel slides over the image in small steps, called strides, and performs element-wise multiplications with the corresponding elements of the image and then sums up the results. The output of this operation is called a feature map.
 
