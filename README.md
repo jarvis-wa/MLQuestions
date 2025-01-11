@@ -114,7 +114,7 @@ Keypoints or features are identified in both the reference and moving images. Th
   - SIFT (Scale-Invariant Feature Transform): detects and describes distinctive keypoints (features) in an image that are **invariant** to scale, rotation, and some degree of illumination changes. Keypoints are detected at multiple scales using a technique called the Difference of Gaussian (DoG)
   - SURF (Speeded-Up Robust Features): SURF is similar to SIFT but is designed to be faster and computationally efficient, making it suitable for real-time applications. It uses a Hessian matrix-based approach to detect keypoints. The determinant of the Hessian matrix indicates regions of interest. Keypoints are detected at multiple scales, similar to SIFT. But it uses **Haar wavelet responses** in the neighborhood of the keypoint, resulting in a **shorter feature descriptor vector** than SIFT.
   - Harris corner detection: detecting corners in an image, which are points where the intensity changes in multiple directions
-  - 
+    
 - Dense features: Every pixel in the image is considered, typically in methods like optical flow.
 
 2. Feature Matching
@@ -125,8 +125,8 @@ Correspondences between features in the two images are established:
 
 3. Transformation Estimation
 Determine the transformation that best aligns the matched features. Transformations can include:
-- Rigid transformations: Translation, rotation.
-- Affine transformations: Translation, rotation, scaling, and shearing.
+- Rigid transformations (shape and size unchanged, position and orientation can be changed): Translation (Moving the object to a new position), rotation.
+- Affine transformations (shape, size and orientation of the object can be changed, while preserving parallelism): Translation, rotation, scaling, and shearing (skewing along one axis).
 - Non-rigid transformations: Complex deformations, often used in medical imaging.
 
 4. Image Warping
