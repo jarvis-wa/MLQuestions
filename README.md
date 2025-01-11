@@ -83,7 +83,7 @@ More visually, in the case of an image of size 32x32x3, with a CNN with a filter
 
 #### 10) Implement a sparse matrix class in C++. [[src](https://www.reddit.com/r/computervision/comments/7gku4z/technical_interview_questions_in_cv/)]
 
-[[Answer]](https://www.geeksforgeeks.org/sparse-matrix-representation/)
+[[Answer]](https://www.geeksforgeeks.org/sparse-matrix-representation/) (Use a 3 (row/col/val) * number of non-sparse points or LinkedList)
 
 #### 11) Create a function to compute an [integral image](https://en.wikipedia.org/wiki/Summed-area_table), and create another function to get area sums from the integral image.[[src](https://www.reddit.com/r/computervision/comments/7gku4z/technical_interview_questions_in_cv/)]
 
