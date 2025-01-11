@@ -91,8 +91,10 @@ More visually, in the case of an image of size 32x32x3, with a CNN with a filter
 
 #### 12) How would you remove outliers when trying to estimate a flat plane from noisy samples? [[src](https://www.reddit.com/r/computervision/comments/7gku4z/technical_interview_questions_in_cv/)]
 
-Random sample consensus (RANSAC) is an iterative method to estimate parameters of a mathematical model from a set of observed data that contains outliers, when outliers are to be accorded no influence on the values of the estimates.
+1. **Random sample consensus (RANSAC)** is an iterative method to estimate parameters of a mathematical model from a set of observed data that contains outliers, when outliers are to be accorded no influence on the values of the estimates. It iteratively samples subsets of the data to fit the plane and evaluates the fit by counting inliers (points close to the estimated plane). The best-fitting plane is selected based on **maximizing** the number of inliers (or, we can define an error function (i.e., squared error) so that if whenever we have required inlier points, we can then calculate the error to select the minimum error ones).
 [[src]](https://en.wikipedia.org/wiki/Random_sample_consensus)
+
+2. **Least squares.** Fit an initial plane using all the data (e.g., using least squares). Calculate the residuals: the perpendicular distances of points from the plane. Remove points with residuals larger than a threshold (e.g., 2 or 3 standard deviations away from the mean).
 
 
 
